@@ -12,6 +12,7 @@ public:
     void printStats() const;     // Print out path statistics
     void saveToFile() const;     // Save path to file "name.dat"
     std::string getName() const; // Returns path name
+    float dst(int i, int j) const { return sqrt(i*i + j*j); };
 protected:
     TerrainMap& map;
     std::vector<Point> path;

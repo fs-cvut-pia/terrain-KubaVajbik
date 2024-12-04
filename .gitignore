@@ -1,0 +1,12 @@
+.vscode/
+.github/
+Lod.o
+Letadlo.o
+Silnice.o
+Path.o
+main.o
+TerrainMap.o
+CestaLetadlem.dat
+CestaLodi.dat
+CestaPoSilnici.dat
+findpath.exe
