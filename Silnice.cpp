@@ -19,7 +19,7 @@ bool Silnice::find() {
             for(int dy = -1; dy < 2; dy++){
                 if(dst(dx, dy) != 0){ //to exclude the point being examined
                     if(map.validCoords(Point(pt.x + dx, pt.y +dy)) && (distMatrix(pt.x + dx, pt.y +dy) + dst(dx,dy) < distMatrix(pt.x + dx, pt.y +dy) || distMatrix(pt.x + dx, pt.y +dy) == 0)){
-                        if((map.alt(pt.x + dx, pt.y +dy) > 0 &&  abs(map.alt(pt.x + dx, pt.y +dy) - map.alt(pt)) < 60)|| map.alt(pt.x + dx, pt.y +dy) == map.alt(finish)){
+                        if((map.alt(pt.x + dx, pt.y +dy) > 0 &&  abs(map.alt(pt.x + dx, pt.y +dy) - map.alt(pt)) < 60)|| (pt.x + dx == finish.x && pt.y + dy == finish.y)){
                             distMatrix(pt.x + dx, pt.y +dy) += dst(dx,dy);   //add current distance to the neighbouring point
                             prevMatrix(pt.x + dx, pt.y +dy) = pt;   //save current point to as previous for this neighbouring point
                             queueToCheck.push_front(Point(pt.x + dx, pt.y + dy));   //add neighbouring point to queue
