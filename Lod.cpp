@@ -18,9 +18,9 @@ bool Lod::find() {
        for(int dx = -1; dx < 2; dx++){  //for all neighbouring points
             for(int dy = -1; dy < 2; dy++){
                 if(dst(dx, dy) != 0){ //to exclude the point being examined
-                    if(map.validCoords(Point(pt.x + dx, pt.y +dy)) && (distMatrix(pt.x + dx, pt.y +dy) + dst(dx,dy) < distMatrix(pt.x + dx, pt.y +dy) || distMatrix(pt.x + dx, pt.y +dy) == 0)){
+                    if(map.validCoords(Point(pt.x + dx, pt.y +dy)) && (distMatrix(pt.x, pt.y) + dst(dx,dy) < distMatrix(pt.x + dx, pt.y + dy) || distMatrix(pt.x + dx, pt.y +dy) == 0)){
                         if(map.alt(pt.x + dx, pt.y +dy) < 0 || (pt.x + dx == finish.x && pt.y + dy == finish.y)){
-                            distMatrix(pt.x + dx, pt.y +dy) += dst(dx,dy);   //add current distance to the neighbouring point
+                            distMatrix(pt.x + dx, pt.y +dy) = distMatrix(pt.x, pt.y) + dst(dx,dy);   //add current distance to the neighbouring point
                             prevMatrix(pt.x + dx, pt.y +dy) = pt;   //save current point to as previous for this neighbouring point
                             queueToCheck.push_front(Point(pt.x + dx, pt.y + dy));   //add neighbouring point to queue
                         }
